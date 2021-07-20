@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    openshift.io/generated-by: OpenShiftNewApp
+    openshift.io/generated-by: argocd
   labels:
     app: httpd
     app.kubernetes.io/component: httpd
@@ -17,7 +17,7 @@ spec:
   template:
     metadata:
       annotations:
-        openshift.io/generated-by: OpenShiftNewApp
+        openshift.io/generated-by: argocd
       labels:
         deployment: httpd
     spec:
