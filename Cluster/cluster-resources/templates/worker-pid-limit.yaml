@@ -1,0 +1,15 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: worker
+  name: custom-pid-limit
+spec:
+  config:
+    ignition:
+      version: 3.1.0
+    storage:
+      files:
+      - contents:
+          source: data:;base64,W2NyaW9dCiAgW2NyaW8ucnVudGltZV0KICAgIHBpZHNfbGltaXQgPSA4MTkyCg==
+        path: /etc/crio/crio.conf.d/01-ctrcfg-pidlimit
