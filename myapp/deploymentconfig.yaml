@@ -26,9 +26,7 @@ spec:
         imagePullPolicy: IfNotPresent
         name: httpd
         ports:
-        - containerPort: 8080
-          protocol: TCP
-        - containerPort: 8443
+        - containerPort: 80
           protocol: TCP
         resources: {}
         terminationMessagePath: /dev/termination-log
