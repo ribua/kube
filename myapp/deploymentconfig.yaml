@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   annotations:
     openshift.io/generated-by: argocd
+    openshift.io/generated-by: ribu
   labels:
     app: httpd
     app.kubernetes.io/component: httpd
@@ -22,7 +23,7 @@ spec:
         deployment: httpd
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/openshift/httpd@sha256:ef5e1b11c6a68c4c4703338fc00052cdf2f000d10b0ff857aa99d49f726e0b72
+      - image: rhscl/httpd-24-rhel7
         imagePullPolicy: IfNotPresent
         name: httpd
         ports:
