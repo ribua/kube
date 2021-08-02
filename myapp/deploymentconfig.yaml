@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   annotations:
     openshift.io/generated-by: argocd
+    openshift.io/generated-by: ribu
   labels:
     app: httpd
     app.kubernetes.io/component: httpd
