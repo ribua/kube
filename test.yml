@@ -2,10 +2,9 @@
 
 - hosts: all
   tasks:
-    - name: Get an existing Pods in the kubernetes cluster
-      k8s:
-          api_version: v1
-          kind: pod
-          name: nginx
-          namespace: ata-namespace  # defining the namespace
-      register: web_service
+    - name: Create a k8s namespace
+      kubernetes.core.k8s:
+        name: testing
+        api_version: v1
+        kind: Namespace
+        state: present
