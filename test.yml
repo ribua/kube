@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: localhost
   tasks:
     - name: Create a k8s namespace
       kubernetes.core.k8s:
