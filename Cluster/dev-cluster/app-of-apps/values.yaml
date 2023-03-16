@@ -1,0 +1,20 @@
+namespace: openshift-gitops
+
+repos: https://github.com/ribua/kube.git
+  uri: https://github.com/ribua/kube.git
+  path: Cluster/dev-cluster/applications/webapp
+  branch: master
+
+
+clusters:
+ - {}
+
+applications:
+  - name: webapp
+    namespace: webapp
+    argocdProject: cluster-project
+    repo: https://github.com/ribua/kube.git
+    path: Cluster/dev-cluster/applications/webapp
+    targetRevision: master
+    api: https://kubernetes.default.svc
+
