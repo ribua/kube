@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/syncwave: "2"
+  labels:
+    app.kubernetes.io/instance: namespace-project
+  name: namespace-users
+  namespace: openshift-gitops
+spec:
+  clusterResourceWhitelist:
+  - group: ""
+    kind: Node
+  - group: '*'
+    kind: '*'
+  description: The project deploy the aplications 
+  destinations:
+  - namespace: '*'
+    server: https://kubernetes.default.svc
+  sourceRepos:
+  - https://github.com/ribua/kube.git
+  syncWindows:
+  - applications:
+    - '*'
+    clusters:
+    - https://kubernetes.default.svc
+    duration: 10m
+    kind: allow
+    manualSync: true
+    namespaces:
+    - '*'
+    schedule: 30 * * * *
+  - applications:
+    - '*'
+    clusters:
+    - https://kubernetes.default.svc
+    duration: 8h
+    kind: deny
+    manualSync: true
+    namespaces:
+    - '*'
+    schedule: 0 23 * * *
