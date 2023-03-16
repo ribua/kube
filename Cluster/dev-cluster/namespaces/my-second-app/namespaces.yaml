@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    app.kubernetes.io/instance: my-first-app
+  name: my-second-app
