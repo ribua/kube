@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cluster-applications
+  name: devops-applications
   namespace: openshift-gitops
 spec:
   destination:
@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-project
   source:
-    path: Cluster/dev-cluster/applications
+    path: Cluster/dev-cluster/app-of-apps
     repoURL: https://github.com/ribua/kube.git
     targetRevision: master
   syncPolicy:
