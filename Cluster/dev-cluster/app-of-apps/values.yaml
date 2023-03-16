@@ -1,10 +1,5 @@
 namespace: openshift-gitops
 
-repos: https://github.com/ribua/kube.git
-  uri: https://github.com/ribua/kube.git
-  path: Cluster/dev-cluster/applications/webapp
-  branch: master
-
 
 clusters:
  - {}
