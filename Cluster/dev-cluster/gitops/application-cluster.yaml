@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-project
   source:
-    path: Cluster/dev-cluster/applications/manifests
+    path: Cluster/dev-cluster/applications
     repoURL: https://github.com/ribua/kube.git
     targetRevision: master
   syncPolicy:
