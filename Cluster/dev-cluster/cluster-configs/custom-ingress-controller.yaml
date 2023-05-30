@@ -1,1 +1,19 @@
 # This file contains info on the custom controller
+
+apiVersion: operator.openshift.io/v1
+kind: IngressController
+metadata:
+  name: custom-ingress-controller
+  namespace: openshift-ingress-operator
+spec:
+  defaultCertificate:
+    name: custom-tls-bundle
+  domain: apps-int.ocp.lan
+  namespaceSelector:
+    matchLabels:
+      ingress: custom-ingress
+  nodePlacement:
+    nodeSelector:
+      matchLabels:
+        node-role.kubernetes.io/custom-ingress: ""
+  replicas: 2
