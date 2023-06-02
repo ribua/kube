@@ -9,5 +9,5 @@ metadata:
     kubernetes.io/os: linux
     node-role.kubernetes.io/infra: ""
     node.openshift.io/os_id: rhcos
-  name: ocp-i-1.lab.ocp.lan
+  name: ocp-i-2.lab.ocp.lan
 spec: {}
