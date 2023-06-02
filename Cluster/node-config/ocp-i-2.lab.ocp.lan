@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Node
+metadata:
+  labels:
+    beta.kubernetes.io/arch: amd64
+    beta.kubernetes.io/os: linux
+    kubernetes.io/arch: amd64
+    kubernetes.io/hostname: ocp-i-2.lab.ocp.lan
+    kubernetes.io/os: linux
+    node-role.kubernetes.io/infra: ""
+    node.openshift.io/os_id: rhcos
+  name: ocp-i-1.lab.ocp.lan
+spec: {}
