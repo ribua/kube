@@ -10,6 +10,14 @@ applications:
     targetRevision: master
     api: https://kubernetes.default.svc
 
+  - name: node-config
+    namespace: default
+    argocdProject: cluster-project
+    repo: https://github.com/ribua/kube.git
+    path: Cluster/dev-cluster/applications/node-config
+    targetRevision: master
+    api: https://kubernetes.default.svc
+
   - name: namespace-users
     namespace: default
     argocdProject: namespace-users
