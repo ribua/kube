@@ -1,0 +1,36 @@
+allowHostDirVolumePlugin: true
+allowHostIPC: true
+allowHostNetwork: true
+allowHostPID: true
+allowHostPorts: true
+allowPrivilegeEscalation: true
+allowPrivilegedContainer: true
+allowedCapabilities:
+- '*'
+allowedUnsafeSysctls:
+- '*'
+apiVersion: security.openshift.io/v1
+defaultAddCapabilities: null
+fsGroup:
+  type: RunAsAny
+kind: SecurityContextConstraints
+metadata:
+  annotations:
+    include.release.openshift.io/self-managed-high-availability: "true"
+    kubernetes.io/description: Custom SCC 
+  name: custom-privileged
+priority: 12
+readOnlyRootFilesystem: false
+requiredDropCapabilities: null
+runAsUser:
+  type: MustRunAsRange
+seLinuxContext:
+  type: RunAsAny
+seccompProfiles:
+- '*'
+supplementalGroups:
+  type: RunAsAny
+users:
+volumes:
+- '*'
+
