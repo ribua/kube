@@ -1,29 +1,29 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: http-port
-  namespace: my-first-app
-  labels:
-    app: httpd-frontend
-spec:
-  ports:
-    - port: 8080
-      name: http-port
-      protocol: TCP
-      targetPort: 8080
-  selector:
-    app: httpd-frontend
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: http-port
+#  namespace: my-first-app
+#  labels:
+#    app: httpd-frontend
+#spec:
+#  ports:
+#    - port: 8080
+#      name: http-port
+#      protocol: TCP
+#      targetPort: 8080
+#  selector:
+#    app: httpd-frontend
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: https-port
+  name: webservice
   namespace: my-first-app
   labels:
     app: httpd-frontend
 spec:
   ports:
-    - port: 8443
+    - port: 443
       name: https-port
       protocol: TCP
       targetPort: 8443
