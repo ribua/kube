@@ -27,7 +27,7 @@ spec:
     - https://kubernetes.default.svc
     duration: 10m
     kind: allow
-    manualSync: true
+  #  manualSync: true
     namespaces:
     - '*'
     schedule: 30 * * * *
@@ -37,7 +37,7 @@ spec:
     - https://kubernetes.default.svc
     duration: 8h
     kind: deny
-    manualSync: true
+  #  manualSync: true
     namespaces:
     - '*'
     schedule: 0 23 * * *
