@@ -1,0 +1,2272 @@
+aggregationRule:
+  clusterRoleSelectors:
+  - matchLabels:
+      rbac.authorization.k8s.io/aggregate-to-admin: "true"
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  labels:   
+    kubernetes.io/bootstrapping: rbac-defaults
+  name: customer-admin
+rules:
+- apiGroups:
+  - integreatly.org
+  resources:
+  - grafanas
+  - grafanas/status
+  - grafanas/finalizers
+  - grafanadashboards
+  - grafanadashboards/status
+  - grafanadatasources
+  - grafanadatasources/status
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - operators.coreos.com
+  resources:
+  - subscriptions
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - operators.coreos.com
+  resources:
+  - clusterserviceversions
+  - catalogsources
+  - installplans
+  - subscriptions
+  verbs:
+  - delete
+- apiGroups:
+  - operators.coreos.com
+  resources:
+  - clusterserviceversions
+  - catalogsources
+  - installplans
+  - subscriptions
+  - operatorgroups
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - packages.operators.coreos.com
+  resources:
+  - packagemanifests
+  - packagemanifests/icon
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apicur.io
+  resources:
+  - apicuritoes
+  verbs:
+  - '*'
+- apiGroups:
+  - jenkins.io
+  resources:
+  - backupconfigs
+  verbs:
+  - '*'
+- apiGroups:
+  - jenkins.io
+  resources:
+  - backups
+  verbs:
+  - '*'
+- apiGroups:
+  - velero.io
+  resources:
+  - backups
+  verbs:
+  - '*'
+- apiGroups:
+  - velero.io
+  resources:
+  - backupstoragelocations
+  verbs:
+  - '*'
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - compliancecheckresults
+  verbs:
+  - '*'
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - complianceremediations
+  verbs:
+  - '*'
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - compliancescans
+  verbs:
+  - '*'
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - compliancesuites
+  verbs:
+  - '*'
+- apiGroups:
+  - apicur.io
+  resources:
+  - apicuritoes
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - jenkins.io
+  resources:
+  - backupconfigs
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - jenkins.io
+  resources:
+  - backups
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - velero.io
+  resources:
+  - backups
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - velero.io
+  resources:
+  - backupstoragelocations
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - compliancecheckresults
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - complianceremediations
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - compliancescans
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - compliancesuites
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - velero.io
+  resources:
+  - deletebackuprequests
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - directimagemigrations
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - directimagestreammigrations
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - directvolumemigrationprogresses
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - directvolumemigrations
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - velero.io
+  resources:
+  - downloadrequests
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - pipelines.openshift.io
+  resources:
+  - gitopsservices
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - hivetables
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - jenkins.io
+  resources:
+  - jenkins
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - jenkins.io
+  resources:
+  - jenkinsimages
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - meteringconfigs
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - miganalytics
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migclusters
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - mighooks
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migmigrations
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migplans
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migrationcontrollers
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migstorages
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - packages.operators.coreos.com
+  resources:
+  - packagemanifests
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - velero.io
+  resources:
+  - podvolumebackups
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - velero.io
+  resources:
+  - podvolumerestores
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - prestotables
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - profilebundles
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - profiles
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  - serviceaccounts
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  - image.openshift.io
+  resources:
+  - imagestreamimages
+  - imagestreammappings
+  - imagestreams
+  - imagestreams/secrets
+  - imagestreamtags
+  - imagetags
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  - image.openshift.io
+  resources:
+  - imagestreamimports
+  verbs:
+  - create
+- apiGroups:
+  - ""
+  - image.openshift.io
+  resources:
+  - imagestreams/layers
+  verbs:
+  - get
+  - update
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - get
+- apiGroups:
+  - ""
+  - project.openshift.io
+  resources:
+  - projects
+  verbs:
+  - get
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - reportdatasources
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - reportqueries
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - reports
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - velero.io
+  resources:
+  - resticrepositories
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - jenkins.io
+  resources:
+  - restores
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - velero.io
+  resources:
+  - restores
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - rules
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - scansettingbindings
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - scansettings
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - velero.io
+  resources:
+  - schedules
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - velero.io
+  resources:
+  - serverstatusrequests
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - storagelocations
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - ""
+  resources:
+  - pods/attach
+  - pods/exec
+  - pods/portforward
+  - pods/proxy
+  - secrets
+  - services/proxy
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - serviceaccounts
+  verbs:
+  - impersonate
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - pods/attach
+  - pods/exec
+  - pods/portforward
+  - pods/proxy
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - patch
+  - update
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  - endpoints
+  - persistentvolumeclaims
+  - replicationcontrollers
+  - replicationcontrollers/scale
+  - secrets
+  - serviceaccounts
+  - services
+  - services/proxy
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - patch
+  - update
+- apiGroups:
+  - apps
+  resources:
+  - daemonsets
+  - deployments
+  - deployments/rollback
+  - deployments/scale
+  - replicasets
+  - replicasets/scale
+  - statefulsets
+  - statefulsets/scale
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - patch
+  - update
+- apiGroups:
+  - autoscaling
+  resources:
+  - horizontalpodautoscalers
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - patch
+  - update
+- apiGroups:
+  - batch
+  resources:
+  - cronjobs
+  - jobs
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - patch
+  - update
+- apiGroups:
+  - extensions
+  resources:
+  - daemonsets
+  - deployments
+  - deployments/rollback
+  - deployments/scale
+  - ingresses
+  - replicasets
+  - replicasets/scale
+  - replicationcontrollers/scale
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - patch
+  - update
+- apiGroups:
+  - policy
+  resources:
+  - poddisruptionbudgets
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - patch
+  - update
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingresses
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - patch
+  - update
+- apiGroups:
+  - metrics.k8s.io
+  resources:
+  - pods
+  - nodes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - image.openshift.io
+  resources:
+  - imagestreams
+  verbs:
+  - create
+- apiGroups:
+  - ""
+  - build.openshift.io
+  resources:
+  - builds/details
+  verbs:
+  - update
+- apiGroups:
+  - ""
+  - build.openshift.io
+  resources:
+  - builds
+  verbs:
+  - get
+- apiGroups:
+  - snapshot.storage.k8s.io
+  resources:
+  - volumesnapshots
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - ""
+  - build.openshift.io
+  resources:
+  - buildconfigs
+  - buildconfigs/webhooks
+  - builds
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  - build.openshift.io
+  resources:
+  - builds/log
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - build.openshift.io
+  resources:
+  - buildconfigs/instantiate
+  - buildconfigs/instantiatebinary
+  - builds/clone
+  verbs:
+  - create
+- apiGroups:
+  - build.openshift.io
+  resources:
+  - jenkins
+  verbs:
+  - edit
+  - view
+- apiGroups:
+  - ""
+  - apps.openshift.io
+  resources:
+  - deploymentconfigs
+  - deploymentconfigs/scale
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  - apps.openshift.io
+  resources:
+  - deploymentconfigrollbacks
+  - deploymentconfigs/instantiate
+  - deploymentconfigs/rollback
+  verbs:
+  - create
+- apiGroups:
+  - ""
+  - apps.openshift.io
+  resources:
+  - deploymentconfigs/log
+  - deploymentconfigs/status
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - image.openshift.io
+  resources:
+  - imagestreams/status
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - quota.openshift.io
+  resources:
+  - appliedclusterresourcequotas
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - route.openshift.io
+  resources:
+  - routes
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  - route.openshift.io
+  resources:
+  - routes/custom-host
+  verbs:
+  - create
+- apiGroups:
+  - ""
+  - route.openshift.io
+  resources:
+  - routes/status
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - template.openshift.io
+  resources:
+  - processedtemplates
+  - templateconfigs
+  - templateinstances
+  - templates
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - extensions
+  - networking.k8s.io
+  resources:
+  - networkpolicies
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - build.openshift.io
+  resources:
+  - buildlogs
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - resourcequotausages
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - tailoredprofiles
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - variables
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - integreatly.org
+  resources:
+  - grafanas
+  - grafanas/status
+  - grafanas/finalizers
+  - grafanadashboards
+  - grafanadashboards/status
+  - grafanadatasources
+  - grafanadatasources/status
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - apicuritoes.apicur.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - apicur.io
+  resources:
+  - apicuritoes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - backupconfigs.jenkins.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - jenkins.io
+  resources:
+  - backupconfigs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - backups.jenkins.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - jenkins.io
+  resources:
+  - backups
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - backups.velero.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - velero.io
+  resources:
+  - backups
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - backupstoragelocations.velero.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - velero.io
+  resources:
+  - backupstoragelocations
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - compliancecheckresults.compliance.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - compliancecheckresults
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - complianceremediations.compliance.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - complianceremediations
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - compliancescans.compliance.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - compliancescans
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - compliancesuites.compliance.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - compliancesuites
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - deletebackuprequests.velero.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - velero.io
+  resources:
+  - deletebackuprequests
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - directimagemigrations.migration.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - directimagemigrations
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - directimagestreammigrations.migration.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - directimagestreammigrations
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - directvolumemigrationprogresses.migration.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - directvolumemigrationprogresses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - directvolumemigrations.migration.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - directvolumemigrations
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - downloadrequests.velero.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - velero.io
+  resources:
+  - downloadrequests
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - gitopsservices.pipelines.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - pipelines.openshift.io
+  resources:
+  - gitopsservices
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - hivetables.metering.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - hivetables
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - jenkins.jenkins.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - jenkins.io
+  resources:
+  - jenkins
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - jenkinsimages.jenkins.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - jenkins.io
+  resources:
+  - jenkinsimages
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - meteringconfigs.metering.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - meteringconfigs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - miganalytics.migration.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - miganalytics
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - migclusters.migration.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migclusters
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - mighooks.migration.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - mighooks
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - migmigrations.migration.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migmigrations
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - migplans.migration.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migplans
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - migrationcontrollers.migration.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migrationcontrollers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - migstorages.migration.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migstorages
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - packages.operators.coreos.com
+  resources:
+  - packagemanifests
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - podvolumebackups.velero.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - velero.io
+  resources:
+  - podvolumebackups
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - podvolumerestores.velero.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - velero.io
+  resources:
+  - podvolumerestores
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - prestotables.metering.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - prestotables
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - profilebundles.compliance.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - profilebundles
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - profiles.compliance.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - profiles
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - image.openshift.io
+  resources:
+  - imagestreamimages
+  - imagestreammappings
+  - imagestreams
+  - imagestreamtags
+  - imagetags
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - image.openshift.io
+  resources:
+  - imagestreams/layers
+  verbs:
+  - get
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - reportdatasources.metering.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - reportdatasources
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - reportqueries.metering.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - reportqueries
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - reports.metering.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - reports
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - resticrepositories.velero.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - velero.io
+  resources:
+  - resticrepositories
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - restores.jenkins.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - jenkins.io
+  resources:
+  - restores
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - restores.velero.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - velero.io
+  resources:
+  - restores
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - rules.compliance.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - rules
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - scansettingbindings.compliance.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - scansettingbindings
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - scansettings.compliance.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - scansettings
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - schedules.velero.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - velero.io
+  resources:
+  - schedules
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - serverstatusrequests.velero.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - velero.io
+  resources:
+  - serverstatusrequests
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - storagelocations.metering.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - storagelocations
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  - endpoints
+  - persistentvolumeclaims
+  - persistentvolumeclaims/status
+  - pods
+  - replicationcontrollers
+  - replicationcontrollers/scale
+  - serviceaccounts
+  - services
+  - services/status
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - bindings
+  - events
+  - limitranges
+  - namespaces/status
+  - pods/log
+  - pods/status
+  - replicationcontrollers/status
+  - resourcequotas
+  - resourcequotas/status
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apps
+  resources:
+  - controllerrevisions
+  - daemonsets
+  - daemonsets/status
+  - deployments
+  - deployments/scale
+  - deployments/status
+  - replicasets
+  - replicasets/scale
+  - replicasets/status
+  - statefulsets
+  - statefulsets/scale
+  - statefulsets/status
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - autoscaling
+  resources:
+  - horizontalpodautoscalers
+  - horizontalpodautoscalers/status
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - batch
+  resources:
+  - cronjobs
+  - cronjobs/status
+  - jobs
+  - jobs/status
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - extensions
+  resources:
+  - daemonsets
+  - daemonsets/status
+  - deployments
+  - deployments/scale
+  - deployments/status
+  - ingresses
+  - ingresses/status
+  - networkpolicies
+  - replicasets
+  - replicasets/scale
+  - replicasets/status
+  - replicationcontrollers/scale
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - policy
+  resources:
+  - poddisruptionbudgets
+  - poddisruptionbudgets/status
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingresses
+  - ingresses/status
+  - networkpolicies
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - snapshot.storage.k8s.io
+  resources:
+  - volumesnapshots
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - build.openshift.io
+  resources:
+  - buildconfigs
+  - buildconfigs/webhooks
+  - builds
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - build.openshift.io
+  resources:
+  - jenkins
+  verbs:
+  - view
+- apiGroups:
+  - ""
+  - apps.openshift.io
+  resources:
+  - deploymentconfigs
+  - deploymentconfigs/scale
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - route.openshift.io
+  resources:
+  - routes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - template.openshift.io
+  resources:
+  - processedtemplates
+  - templateconfigs
+  - templateinstances
+  - templates
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - build.openshift.io
+  resources:
+  - buildlogs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - tailoredprofiles.compliance.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - tailoredprofiles
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - variables.compliance.openshift.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - variables
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames:
+  - volumesnapshotlocations.velero.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+- apiGroups:
+  - velero.io
+  resources:
+  - volumesnapshotlocations
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - velero.io
+  resources:
+  - volumesnapshotlocations
+  verbs:
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - velero.io
+  resources:
+  - deletebackuprequests
+  verbs:
+  - '*'
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - directimagemigrations
+  verbs:
+  - '*'
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - directimagestreammigrations
+  verbs:
+  - '*'
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - directvolumemigrationprogresses
+  verbs:
+  - '*'
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - directvolumemigrations
+  verbs:
+  - '*'
+- apiGroups:
+  - velero.io
+  resources:
+  - downloadrequests
+  verbs:
+  - '*'
+- apiGroups:
+  - pipelines.openshift.io
+  resources:
+  - gitopsservices
+  verbs:
+  - '*'
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - hivetables
+  verbs:
+  - '*'
+- apiGroups:
+  - jenkins.io
+  resources:
+  - jenkins
+  verbs:
+  - '*'
+- apiGroups:
+  - jenkins.io
+  resources:
+  - jenkinsimages
+  verbs:
+  - '*'
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - meteringconfigs
+  verbs:
+  - '*'
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - miganalytics
+  verbs:
+  - '*'
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migclusters
+  verbs:
+  - '*'
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - mighooks
+  verbs:
+  - '*'
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migmigrations
+  verbs:
+  - '*'
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migplans
+  verbs:
+  - '*'
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migrationcontrollers
+  verbs:
+  - '*'
+- apiGroups:
+  - migration.openshift.io
+  resources:
+  - migstorages
+  verbs:
+  - '*'
+- apiGroups:
+  - packages.operators.coreos.com
+  resources:
+  - packagemanifests
+  verbs:
+  - '*'
+- apiGroups:
+  - velero.io
+  resources:
+  - podvolumebackups
+  verbs:
+  - '*'
+- apiGroups:
+  - velero.io
+  resources:
+  - podvolumerestores
+  verbs:
+  - '*'
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - prestotables
+  verbs:
+  - '*'
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - profilebundles
+  verbs:
+  - '*'
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - profiles
+  verbs:
+  - '*'
+- apiGroups:
+  - ""
+  - authorization.openshift.io
+  resources:
+  - rolebindings
+  - roles
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - rbac.authorization.k8s.io
+  resources:
+  - rolebindings
+  - roles
+  verbs:
+  - create
+  - delete
+  - deletecollection
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  - authorization.openshift.io
+  resources:
+  - localresourceaccessreviews
+  - localsubjectaccessreviews
+  - subjectrulesreviews
+  verbs:
+  - create
+- apiGroups:
+  - authorization.k8s.io
+  resources:
+  - localsubjectaccessreviews
+  verbs:
+  - create
+- apiGroups:
+  - ""
+  - project.openshift.io
+  resources:
+  - projects
+  verbs:
+  - delete
+  - get
+- apiGroups:
+  - ""
+  - authorization.openshift.io
+  resources:
+  - resourceaccessreviews
+  - subjectaccessreviews
+  verbs:
+  - create
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - reportdatasources
+  verbs:
+  - '*'
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - reportqueries
+  verbs:
+  - '*'
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - reports
+  verbs:
+  - '*'
+- apiGroups:
+  - velero.io
+  resources:
+  - resticrepositories
+  verbs:
+  - '*'
+- apiGroups:
+  - jenkins.io
+  resources:
+  - restores
+  verbs:
+  - '*'
+- apiGroups:
+  - velero.io
+  resources:
+  - restores
+  verbs:
+  - '*'
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - rules
+  verbs:
+  - '*'
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - scansettingbindings
+  verbs:
+  - '*'
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - scansettings
+  verbs:
+  - '*'
+- apiGroups:
+  - velero.io
+  resources:
+  - schedules
+  verbs:
+  - '*'
+- apiGroups:
+  - velero.io
+  resources:
+  - serverstatusrequests
+  verbs:
+  - '*'
+- apiGroups:
+  - metering.openshift.io
+  resources:
+  - storagelocations
+  verbs:
+  - '*'
+- apiGroups:
+  - ""
+  - security.openshift.io
+  resources:
+  - podsecuritypolicyreviews
+  - podsecuritypolicyselfsubjectreviews
+  - podsecuritypolicysubjectreviews
+  verbs:
+  - create
+- apiGroups:
+  - ""
+  - authorization.openshift.io
+  resources:
+  - rolebindingrestrictions
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - build.openshift.io
+  resources:
+  - jenkins
+  verbs:
+  - admin
+  - edit
+  - view
+- apiGroups:
+  - ""
+  - project.openshift.io
+  resources:
+  - projects
+  verbs:
+  - delete
+  - get
+  - patch
+  - update
+- apiGroups:
+  - ""
+  - route.openshift.io
+  resources:
+  - routes/status
+  verbs:
+  - update
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - tailoredprofiles
+  verbs:
+  - '*'
+- apiGroups:
+  - compliance.openshift.io
+  resources:
+  - variables
+  verbs:
+  - '*'
+- apiGroups:
+  - velero.io
+  resources:
+  - volumesnapshotlocations
+  verbs:
+  - '*'
