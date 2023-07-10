@@ -31,14 +31,13 @@ spec:
     namespaces:
     - '*'
     schedule: 30 * * * *
-#  - applications:
-#    - '*'
-#    clusters:
-#    - https://kubernetes.default.svc
-#    duration: 8h
-#    kind: deny
-#    manualSync: true
-#    namespaces:
-#    - '*'
-#    schedule: 0 23 * * *
-#
+  - applications:
+    - '*'
+    clusters:
+    - https://kubernetes.default.svc
+    duration: 8h
+    kind: deny
+  #  manualSync: true
+    namespaces:
+    - '*'
+    schedule: 0 23 * * *

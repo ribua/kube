@@ -18,10 +18,10 @@ applications:
   #  targetRevision: master
   #  api: https://kubernetes.default.svc
 #
-  #- name: namespace-users
-  #  namespace: default
-  #  argocdProject: namespace-users
-  #  repo: https://github.com/ribua/kube.git
-  #  path: Cluster/dev-cluster/namespace-users
-  #  targetRevision: master
-  #  api: https://kubernetes.default.svc
+  - name: namespace-users
+    namespace: default
+    argocdProject: namespace-users
+    repo: https://github.com/ribua/kube.git
+    path: Cluster/dev-cluster/namespace-users
+    targetRevision: master
+    api: https://kubernetes.default.svc
