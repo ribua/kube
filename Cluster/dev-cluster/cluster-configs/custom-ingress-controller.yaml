@@ -1,5 +1,4 @@
 # This file contains info on the custom controller
-
 apiVersion: operator.openshift.io/v1
 kind: IngressController
 metadata:
