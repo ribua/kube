@@ -1,0 +1,18 @@
+apiVersion: operator.openshift.io/v1
+kind: IngressController
+metadata:
+  name: apps-int-ingress-controller
+  namespace: openshift-ingress-operator
+spec:
+  domain: apps-int.ocp.lan
+  replicas: 2
+  tuningOptions:
+    reloadInterval: 0s
+  nodePlacement:
+    nodeSelector:
+      matchLabels:
+        node-role.kubernetes.io/apps-int-ingress: ""
+  namespaceSelector:
+    matchLabels:
+      ingress: custom-ingress
+  replicas: 2

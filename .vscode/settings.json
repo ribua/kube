@@ -1,0 +1,6 @@
+{
+    "json.schemas": [],
+    "yaml.schemas": {    
+        "kubernetes": "*.yaml"
+    }
+}
