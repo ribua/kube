@@ -1,0 +1,15 @@
+---
+- name: Create a Kubernetes namespace
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Create a namespace
+      community.kubernetes.k8s:
+        api_version: v1
+        kind: Namespace
+        name: my-namespace
+      vars:
+        ansible_k8s_auth:
+          api_key: "{{ lookup('env', 'K8S_AUTH_API_KEY') }}"
+          host: "https://{{ api_url }}:6443"
+          verify_ssl: no
