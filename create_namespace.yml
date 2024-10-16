@@ -3,6 +3,8 @@
   hosts: localhost
   gather_facts: no
   connection: local
+  collections:
+    - community.kubernetes
   tasks:
     - name: Create a namespace
       community.kubernetes.k8s:
