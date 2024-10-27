@@ -7,6 +7,7 @@
     vpc_cidr_block: 10.0.0.0/16  
     vpc_name: my_vpc   
     key_name: ocp
+    location: ap-southeast-2
   tasks:
     - name: Create VPC
       amazon.aws.ec2_vpc_net:
