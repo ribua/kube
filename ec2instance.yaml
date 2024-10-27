@@ -3,22 +3,49 @@
   hosts: localhost
   gather_facts: no
 
-  vars:
-    instance_type: t2.micro
+vars:
+    vpc_cidr_block: 10.0.0.0/16  
+    vpc_name: my_vpc   
     key_name: ocp
-    image_id: ami-0b297f3d01884ee11  # Replace with a valid AMI ID in your region
-    region: ap-southeast-2             # Set the AWS region you wish to deploy to
-
   tasks:
-    - name: Launch EC2 instance
-      amazon.aws.ec2_instance:
-        instance_type: "{{ instance_type }}"
-        key_name: "{{ key_name }}"
-        image_id: "{{ image_id }}"
-        region: "{{ region }}"
-        wait: yes
-      register: ec2
+    - name: Create VPC
+      amazon.aws.ec2_vpc_net:
+        name: "{{ vpc_name }}"
+        cidr_block: "{{ vpc_cidr_block }}"
+        region: "{{ location }}"   
+        state: present
+      register: vpc
 
-    - name: Output instance details
-      debug:
-        msg: "EC2 instance {{ ec2.instance_id }} launched in {{ region }}"
+    - name: Create security group
+      amazon.aws.ec2_group:
+        name: my_security_group
+        description: Ansible created security group
+        region: "{{ location }}"
+        rules:
+          - proto: tcp
+            ports:
+              - 22
+              - 80
+              - 443
+            cidr_ip: 0.0.0.0/0
+
+    - name: Create key pair
+      amazon.aws.ec2_key:
+        name: "{{ key_name }}"
+        key_material: "{{ lookup('file', '/root/.ssh/aws_ssh_key.pub') }}"
+        region: "{{ location }}"
+
+    - name: Launch EC2 instances
+      amazon.aws.ec2_instance:
+        key_name: "{{ key_name }}"
+        security_group: my_security_group
+        instance_type: t2.micro
+        image_id: ami-0808460885ff81045
+        region: "{{ location }}"
+        network:
+          assign_public_ip: true
+        state: running
+        count: 2
+        tags:
+          Env: "challenge"
+      register: ec2
