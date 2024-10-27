@@ -1,0 +1,24 @@
+---
+- name: Launch AWS EC2 Instance
+  hosts: localhost
+  gather_facts: no
+
+  vars:
+    instance_type: t2.micro
+    key_name: ocp
+    image_id: ami-0b297f3d01884ee11  # Replace with a valid AMI ID in your region
+    region: ap-southeast-2             # Set the AWS region you wish to deploy to
+
+  tasks:
+    - name: Launch EC2 instance
+      amazon.aws.ec2_instance:
+        instance_type: "{{ instance_type }}"
+        key_name: "{{ key_name }}"
+        image_id: "{{ image_id }}"
+        region: "{{ region }}"
+        wait: yes
+      register: ec2
+
+    - name: Output instance details
+      debug:
+        msg: "EC2 instance {{ ec2.instance_id }} launched in {{ region }}"
