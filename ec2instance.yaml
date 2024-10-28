@@ -20,14 +20,12 @@
           this: works
       register: vpc
 
-    - debug:
-        var: vpc
-
     - name: Create security group
       amazon.aws.ec2_security_group:
         name: web-sg
         description: Ansible created security group
         region: "{{ location }}"
+        vpc_id: "{{ vpc.vpc.id }}"
         rules:
           - proto: tcp
             ports:
