@@ -33,7 +33,7 @@
     - name: Launch EC2 instances
       amazon.aws.ec2_instance:
         key_name: "{{ key_name }}"
-        vpc_subnet_id: subnet-0a0951bc848d1860c
+        vpc_subnet_id: subnet-0ba7a18fe253c80ec
         instance_type: t2.micro
         image_id: ami-0808460885ff81045
         region: "{{ location }}"
