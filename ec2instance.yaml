@@ -19,7 +19,7 @@
 
     - name: Create security group
       amazon.aws.ec2_group:
-        name: my_security_group
+        name: web-sg
         description: Ansible created security group
         region: "{{ location }}"
         rules:
@@ -37,7 +37,7 @@
         instance_type: t2.micro
         image_id: ami-0808460885ff81045
         region: "{{ location }}"
-        security_group: my_security_group
+        security_group: web-sg
         network:
           assign_public_ip: true
         state: running
