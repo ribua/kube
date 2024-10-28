@@ -15,10 +15,16 @@
         cidr_block: "{{ vpc_cidr_block }}"
         region: "{{ location }}"   
         state: present
+        tags:
+          module: ec2_vpc_net
+          this: works
       register: vpc
 
+    - debug:
+        var: vpc
+
     - name: Create security group
-      amazon.aws.ec2_group:
+      amazon.aws.ec2_security_group:
         name: web-sg
         description: Ansible created security group
         region: "{{ location }}"
