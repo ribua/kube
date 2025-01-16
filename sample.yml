@@ -1,0 +1,10 @@
+---
+
+- name: Configure Wget package
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Install wget package on host
+      ansible.builtin.yum:
+        name: wget
+        state: latest
